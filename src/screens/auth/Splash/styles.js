@@ -9,17 +9,31 @@ export const styles = StyleSheet.create({
         paddingTop: 144
     },
     container: {
-        
+        padding: 24,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        borderWidth: 1
+    },
+    titleContainer: {
+        marginVertical: 54,
     },
     title: {
         fontSize: 40,
         fontWeight: "bold",
-        paddingLeft: 64,
-        paddingRight: 64,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'DM Sans'
     },
     innerTitle: {
         color: '#FCA34D',
         textDecorationLine: 'underline'
+    },
+    footerText: {
+        color: '#4F63AC',
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 30
     }
 });
