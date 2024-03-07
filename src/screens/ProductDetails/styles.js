@@ -34,20 +34,19 @@ export const styles = StyleSheet.create({
         padding: 24,
         flexDirection: 'row',
         alignItems: 'center',
-        marginRight: 75
     },
     save: {
         flex: 1
     },
-    bookmarkContainer: {
+    bookMarkContainer: {
         backgroundColor: colors.lightGray,
         padding: 18,
         borderRadius: 8,
         marginRight: 16
     },
-    bookmarkIcon: {
+    bookMarkIcon: {
         width: 24,
-        height: 24
+        height: 24,
     },
     backContainer: {
         backgroundColor: colors.white,
@@ -59,9 +58,5 @@ export const styles = StyleSheet.create({
     backIcon: {
         width: 20,
         height: 20
-    },
-    button: {
-        width: '100%',
-        marginLeft: 10
     }
-})
+});
