@@ -15,6 +15,30 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { colors } from "./src/utils/colors";
 import Config from "react-native-config";
 import ProductDetails from "./src/screens/ProductDetails";
+import Settings from "./src/screens/app/Settings";
+import CreateListing from "./src/screens/app/CreateListing";
+
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CreateListing"
+        component={CreateListing}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,7 +73,7 @@ const Tabs = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={ProfileStack} />
     </Tab.Navigator>
   );
 };
