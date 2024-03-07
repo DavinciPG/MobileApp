@@ -13,7 +13,9 @@ const Favorites = () => {
         }
 
         return (
-            <FavoriteItem {...item} />
+            <FavoriteItem onPress={onProductPress}
+                {...item}
+            />
         )
     }
 

@@ -22,12 +22,12 @@ export const styles = StyleSheet.create({
     },
     price: {
         fontSize: 30,
-        fotnWeight: 'bold',
+        fontWeight: 'bold',
         marginVertical: 8
     },
     description: {
         color: colors.textGrey,
-        fotnWeight: '300',
+        fontWeight: '300',
         marginVertical: 8
     },
     footer: {
@@ -59,5 +59,9 @@ export const styles = StyleSheet.create({
     backIcon: {
         width: 20,
         height: 20
+    },
+    button: {
+        width: '100%',
+        marginLeft: 10
     }
 })

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Text, Pressable, View, Image, Input, ScrollView, SafeAreaView } from "react-native";
+import { Text, Pressable, View, Image, Input, ScrollView, SafeAreaView, Linking } from "react-native";
 import Button from "../Button";
 import { styles } from './styles'
+import ImageCarusel from "../ImageCarusel";
 
 const ProductDetails = ({navigation, route}) => {
     const { product } = route.params || {};
@@ -10,10 +11,24 @@ const ProductDetails = ({navigation, route}) => {
         navigation.goBack();
     }
 
+    const onContact = () => {
+        // phone
+        let phone = 'real phone number';
+        Linking.openURL(`tel:${phone}`);
+
+        // email
+        let email = 'real email';
+        Linking.openURL(`mailto:${email}`);
+    }
+
     return (
         <SafeAreaView style={styles.save}>
             <ScrollView>
-                <Image style={styles.image} source={{ uri: product?.image }} />
+                {product?.images?.length ? (
+                    <ImageCarusel images={product?.images} />
+                ) : (
+                    <Image style={styles.image} source={{ uri: product?.image }} />
+                )}
                 <View style={styles.content}>
                     <Text style={styles.title}>{product?.title}</Text>
                     <Text style={styles.price}>{product?.price}</Text>
@@ -25,9 +40,9 @@ const ProductDetails = ({navigation, route}) => {
             </ScrollView>
             <View style={styles.footer}>
                 <Pressable>
-                    <Image source={require('../../assets/tabs/bookmark.png')} />
+                    <Image source={require('../../assets/bookmark_2.png')} />
                 </Pressable>
-                <Button style={styles.button} title="Contact Seller" />
+                <Button onPress={onContact} style='button' title="Contact Seller" />
             </View>
       </SafeAreaView>
     );
