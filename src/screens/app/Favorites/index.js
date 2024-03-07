@@ -4,6 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from './styles';
 
 const Favorites = () => {
+    const renderItem = ({ item }) => {
+        const onProductPress = () => {
+            NavigationContainer.navigate('ProductDetails', { product: item });
+        }
+    }
+
     return (
         <SafeAreaView>
             <View style={styles.container}>

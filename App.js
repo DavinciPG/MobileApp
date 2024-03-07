@@ -14,6 +14,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { colors } from './src/utils/colors';
 import Config from 'react-native-config';
+import ProductDetails from "./src/components/ProductDetails";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -76,13 +77,14 @@ const App = () => {
           {
             isSignedIn ? (
               <>
-                <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}} />
+                <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+                <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}} />
               </>
             ) : (
               <>
                 <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}} />
                 <Stack.Screen name="Signin" component={Signin} options={{headerShown: false}} />
-                <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
+                <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}} />
               </>
             )
           }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Text, Pressable, View, Image, Input } from "react-native";
 import { styles } from './styles'
 
+import { colors } from "../../utils/colors";
+
 const CategoryBox = ({ title, image, onPress, isSelected }) => {
     return (
       <Pressable onPress={onPress} style={styles.container}>
