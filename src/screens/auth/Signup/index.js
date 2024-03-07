@@ -20,6 +20,10 @@ const Signup = ({ navigation }) => {
         navigation.navigate('Signin');
     }
 
+    const onChange = (key, value) => {
+        setValues(v => ({...v, [key]: value}))
+    }
+
     return (
         <SafeAreaView>
             <View style={styles.container}>
