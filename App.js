@@ -17,6 +17,7 @@ import Config from "react-native-config";
 import ProductDetails from "./src/screens/ProductDetails";
 import Settings from "./src/screens/app/Settings";
 import CreateListing from "./src/screens/app/CreateListing";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const UserContext = React.createContext();
 
@@ -88,6 +89,13 @@ const theme = {
 
 const App = () => {
   const [user, setUser] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const accessToken = await AsyncStorage.getItem('auth_token');
+      setUser({ accessToken });
+    });
+  });
 
   useEffect(() => {
     GoogleSignin.configure({

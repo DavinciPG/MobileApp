@@ -5,12 +5,18 @@ import Header from "../../../components/Header";
 import ListItem from "../../../components/ListItem";
 import Button from "../../../components/Button";
 import { styles } from "./styles";
+import { UserContext } from "../../../../App";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Profile = ({ navigation }) => {
+  const { user, setUser } = useContext(UserContext);
   const num = 10;
 
   const onLogout = async () => {
-      navigation.navigate('Signup');
+    console.log(user);
+    navigation.navigate('Signup');
+    await AsyncStorage.removeItem('auth_token');
+    setUser(null);
   };
 
   const onSettingsPress = () => {

@@ -9,11 +9,14 @@ import Seperator from "../../../components/Seperator";
 import GoogleLogin from "../../../components/GoogleLogin";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UserContext } from "../../../../App";
+import { Alert } from "react-native";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Signup = ({ navigation }) => {
   const [checked, setChecked] = useState(false);
-    const [values, setValues] = useState({});
-    const { user, setUser } = useContext(UserContext);
+  const [values, setValues] = useState({});
+  const { user, setUser } = useContext(UserContext);
 
   const onBack = () => {
     navigation.goBack();
@@ -44,11 +47,17 @@ const Signup = ({ navigation }) => {
         const { email, password } = values;
         axios
           .post("http://192.168.18.4/api/user.register", values)
-          .then((response) => {
-              console.log("login => ", response);
-              const accessToken = response?.data?.accessToken;
-              console.log(accessToken);
-              setUser({accessToken});
+          .then(async (response) => {
+            console.log("login => ", response);
+            const accessToken = response?.data?.accessToken;
+            console.log(accessToken);
+            setUser({ accessToken });
+            if (response?.data?.token) {
+              await AsyncStorage.setItem(
+                "auth_token",
+                `${response?.data?.token}`
+              );
+            }
           })
           .catch((error) => {
             console.error(error);
