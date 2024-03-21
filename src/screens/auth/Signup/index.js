@@ -41,12 +41,12 @@ const Signup = ({ navigation }) => {
     }
 
     axios
-      .post("http://192.168.18.4/api/user/register", values)
+      .post("http://192.168.17.234/api/user/register", values)
       .then((response) => {
         console.log("signup => ", response);
         const { email, password } = values;
         axios
-          .post("http://192.168.18.4/api/user.register", values)
+          .post("http://192.168.17.234/api/user/login", values)
           .then(async (response) => {
             console.log("login => ", response);
             const accessToken = response?.data?.accessToken;

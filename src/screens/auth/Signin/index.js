@@ -36,7 +36,7 @@ const Signin = ({ navigation }) => {
     }
 
     axios
-      .post("http://192.168.18.4/api/user/login", values)
+      .post("http://192.168.17.234/api/user/login", values)
       .then(async (response) => {
         console.log(response?.data?.accesToken);
         const accessToken = response?.data?.accessToken;
